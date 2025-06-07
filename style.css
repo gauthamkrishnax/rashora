@@ -145,26 +145,36 @@ section:not(section:first-child) {
   max-width: 1000px;
   flex-wrap: wrap;
 
-  div {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.5s ease-in-out;
+  & > div {
+    padding: 30px;
     background-color: #eee;
+    transition: all 0.5s ease-in-out;
     border-radius: 10px;
-    padding: 3em;
     display: flex;
     align-items: center;
-
+    align-items: flex-start;
     svg {
       width: 80px;
       height: 80px;
       margin-right: 20px;
+      flex-shrink: 0;
     }
   }
-
-  div.active {
-    opacity: 1;
-    transform: translateX(0);
+  
+  .service-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .service-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .service-content p {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
 
@@ -203,5 +213,14 @@ footer {
   }
   section:not(section:first-child) {
     padding: 1em;
+  }
+  
+  .service-list div {
+    padding: 2em;
+  }
+  
+  .service-list svg {
+    width: 60px;
+    height: 60px;
   }
 }
