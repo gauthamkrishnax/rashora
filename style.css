@@ -104,7 +104,8 @@ header {
   background-color: #0c042e;
 }
 
-.hero-video {
+.hero-video,
+.hero-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -275,6 +276,68 @@ footer {
   line-height: 1.7;
 }
 
+/* Service Image Styles */
+.service-image {
+  margin-top: 0;
+  text-align: center;
+}
+
+.service-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Two Column Layout for Service Content */
+#learn_more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+  align-items: start;
+}
+
+#learn_more h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 1em;
+}
+
+#learn_more .content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#learn_more .image-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#learn_more .image-column .service-image {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+#learn_more .image-column .service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Override for index page - keep single column layout */
+body:not(.service-page) #learn_more {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+}
+
+body:not(.service-page) #learn_more h2 {
+  grid-column: auto;
+}
+
 @media (max-width: 900px) {
   header > div {
     flex-wrap: wrap;
@@ -298,5 +361,25 @@ footer {
   .service-list svg {
     width: 60px;
     height: 60px;
+  }
+  
+  /* Mobile responsive for two-column layout */
+  #learn_more {
+    display: block;
+    gap: 0;
+  }
+  
+  #learn_more .content-column {
+    margin-bottom: 2em;
+  }
+  
+  #learn_more .image-column {
+    margin-top: 2em;
+  }
+  
+  #learn_more .image-column .service-image {
+    width: 100%;
+    height: 250px;
+    max-width: none;
   }
 }
