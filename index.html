@@ -247,17 +247,32 @@
       },
     ];
 
+    // Service URLs mapping
+    const serviceUrls = {
+      "Electrical System Installation & Services": "/services/electrical.html",
+      "Solar Energy Solutions": "/services/solar.html",
+      "Plumbing System Installation & Maintenance": "/services/plumbing.html",
+      "Surveillance & Networking": "/services/surveillance.html",
+      "Engineering Design & Drafting": "/services/engineering-design.html",
+      "BIM & MEP Solutions": "/services/bim-mep.html",
+      "Cost Engineering & Estimation": "/services/cost-engineering.html",
+      "Automation & Control Systems": "/services/automation.html"
+    };
+
     // Generate service list using map
     document.getElementById("service-list-container").innerHTML = servicesData
       .map(
         (service) => `
+        <a href="${serviceUrls[service.title]}" class="service-link">
       <div>
         ${service.icon}
         <div class="service-content">
           <h3>${service.title}</h3>
           <p>${service.description}</p>
+          <span>Learn More</span>
         </div>
       </div>
+      </a>
     `
       )
       .join("");
